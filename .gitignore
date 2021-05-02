@@ -1,0 +1,16 @@
+.vs/
+API_EXAMPLE/bin
+API_EXAMPLE/obj
+ApplicationApp/bin
+ApplicationApp/obj
+DDD_EXAMPLE/bin			
+DDD_EXAMPLE/obj
+DDD_WEB/bin	
+DDD_WEB/obj
+Domain/bin
+Domain/obj
+Entities/bin
+Entities/obj
+Infrastructure/bin
+Infrastructure/obj
+
