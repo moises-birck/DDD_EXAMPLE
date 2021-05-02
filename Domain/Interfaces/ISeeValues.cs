@@ -6,10 +6,6 @@ namespace Domain.Interfaces
 {
     public interface ISeeValues : IGeneric<SeeValuesResponse>
     {
-        //Task<SeeValuesResponse> CalculateValues(SeeValuesRequest seeValues);
-
-        
-
         
     }
 }

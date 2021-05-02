@@ -10,10 +10,9 @@ namespace ApplicationApp.Apps
 {
     public class AppSeeValues : InterfaceSeeValuesApp
     {
-        //ISeeValues _ISeeValues;
         IServiceSeeValues _IServiceSeeValues;
 
-        public AppSeeValues( IServiceSeeValues IServiceSeeValues) //, ISeeValues _ISeeValues
+        public AppSeeValues( IServiceSeeValues IServiceSeeValues) 
         {
             _IServiceSeeValues = IServiceSeeValues;
         }
