@@ -42,7 +42,7 @@ namespace Domain.Services
                         withPlan = ((calc * 0.1m) + calc).ToString("C");
                     }
                     else
-                        withPlan = "0";
+                        withPlan = (0).ToString("C");
 
                     noPlan = (seeValues.CallMinutes * taxPerMinutes).ToString("C");
                 }
