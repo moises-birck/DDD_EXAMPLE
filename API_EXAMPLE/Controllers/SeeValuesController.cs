@@ -1,6 +1,6 @@
 ﻿using ApplicationApp.Interfaces;
 using Entities.Entities.RequestObject;
-
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -27,22 +27,30 @@ namespace API_EXAMPLE.Controllers
         [HttpPost]
         public async Task<IActionResult> SeeValues(SeeValuesRequest see)
         {
-            await Task.Delay(1);
-            var respValidate = _InterfaceSeeValuesApp.ValidateSeeValues(see);
-            if (respValidate.Status.ToString() == "RanToCompletion") {
-
-                if (respValidate.Result.Any())
-                    return BadRequest(respValidate.Result);
-
-                var resp = _InterfaceSeeValuesApp.CalculateValues(see);
-                if (resp.Status.ToString() == "RanToCompletion")
+            try
+            {
+                await Task.Delay(1);
+                var respValidate = _InterfaceSeeValuesApp.ValidateSeeValues(see);
+                if (respValidate.Status.ToString() == "RanToCompletion")
                 {
-                    var result = resp.Result;
-                    return Ok(result);
-                }
-            }
 
-            return BadRequest();
+                    if (respValidate.Result.Any())
+                        return BadRequest(respValidate.Result);
+
+                    var resp = _InterfaceSeeValuesApp.CalculateValues(see);
+                    if (resp.Status.ToString() == "RanToCompletion")
+                    {
+                        var result = resp.Result;
+                        return Ok(result);
+                    }
+                }
+
+                return BadRequest();
+            }
+            catch (Exception)
+            {
+                return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+            }
         }
     }
 }
