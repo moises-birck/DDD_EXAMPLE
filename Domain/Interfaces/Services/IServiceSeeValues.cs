@@ -12,6 +12,5 @@ namespace Domain.Interfaces
 
         Task<List<Notifies>> ValidateSeeValues(SeeValuesRequest values);
 
-
     }
 }
